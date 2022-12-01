@@ -1,0 +1,13 @@
+{% load i18n %}
+<h2>{% blocktrans with site.name as site_name %}The following form has been sent from {{ site_name }}.{% endblocktrans %}</h2>
+
+<p><a href="{{ form_url }}">{{ contact_form.name }}</a></p>
+-------------
+<table>
+	{% for attrs in cleaned_fields.itervalues %}
+		<tr>
+		  <td>{{ attrs.label }}</td>
+		  <td>{{ attrs.value }}</td>
+		</tr>
+	{% endfor %}
+</table>

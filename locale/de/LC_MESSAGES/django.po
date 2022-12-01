@@ -1,0 +1,313 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: contactform\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-07-16 15:39+0200\n"
+"PO-Revision-Date: 2013-07-16 15:41+0100\n"
+"Last-Translator: Patrick Lauber <patrick.lauber@divio.ch>\n"
+"Language-Team: Divio <maik.lustenberger@divio.ch>\n"
+"Language: de_CH\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Translated-Using: django-rosetta 0.4.0\n"
+"X-Generator: Poedit 1.5.7\n"
+
+#: cms_plugins.py:12
+msgid "Contact Form"
+msgstr "Kontaktformular"
+
+#: field_loader.py:9 models.py:62
+msgid "title"
+msgstr ""
+
+#: field_loader.py:10
+msgid "character field"
+msgstr "Zeichen Feld"
+
+#: field_loader.py:11
+msgid "email field"
+msgstr "E-Mail Feld"
+
+#: field_loader.py:12
+msgid "checkbox"
+msgstr "Checkbox"
+
+#: field_loader.py:13
+msgid "choice field"
+msgstr "Auswahl Feld"
+
+#: field_loader.py:14
+msgid "file field"
+msgstr "Datei Feld"
+
+#: field_loader.py:22
+msgid "textarea"
+msgstr "Textarea"
+
+#: field_loader.py:23
+msgid "password input"
+msgstr "Passworteingabe"
+
+#: field_loader.py:24
+msgid "radio buttons"
+msgstr "Radiobuttons"
+
+#: models.py:60 models.py:333 migrations/0001_initial.py:41
+msgid "language"
+msgstr "Sprache"
+
+#: models.py:61 models.py:318 migrations/0001_initial.py:42
+msgid "name"
+msgstr "Name"
+
+#: models.py:63 migrations/0001_initial.py:43
+msgid "description"
+msgstr "Beschreibung"
+
+#: models.py:64 migrations/0002_r474.py:11
+msgid "submit label"
+msgstr "Label Absende-Button"
+
+#: models.py:64
+msgid "default"
+msgstr "Standard"
+
+#: models.py:64 models.py:291
+msgid "submit"
+msgstr "absenden"
+
+#: models.py:65 migrations/0001_initial.py:44
+msgid "success message"
+msgstr "Erfolgsmeldung"
+
+#: models.py:66 models.py:326
+msgid "recipients"
+msgstr "Empfänger"
+
+#: models.py:67 migrations/0001_initial.py:45
+msgid "CC to managers"
+msgstr "CC zu Managern"
+
+#: models.py:67
+#, python-format
+msgid "Check to send a copy to the site managers (%s)."
+msgstr ""
+"Aktivieren um eine Kopie der Anfrage an die Site-Manager (%s) zu senden."
+
+#: models.py:68 migrations/0001_initial.py:46
+msgid "CC to site contact"
+msgstr "CC zu Site-Kontakt"
+
+#: models.py:68
+#, python-format
+msgid "Check to send a copy to the site contact (%s)."
+msgstr ""
+"Aktivieren um eine Kopie der Anfrage an die Site-Kontakt (%s) zu senden."
+
+#: models.py:69 migrations/0001_initial.py:47
+msgid "has a captcha"
+msgstr "verwendet ein Captcha"
+
+#: models.py:69
+msgid "Should the user be required to fill up a captcha to verify he is human?"
+msgstr "Absender muss eine Captcha-Aufgabe lösen."
+
+#: models.py:70 models.py:305
+msgid "CSS class"
+msgstr ""
+
+#: models.py:108 templatetags/contactform_tags.py:48
+msgid "yes"
+msgstr "ja"
+
+#: models.py:108 templatetags/contactform_tags.py:48
+msgid "no"
+msgstr "nein"
+
+#: models.py:156
+msgid "Form does not validate"
+msgstr "Formular validiert nicht"
+
+#: models.py:164
+msgid "Contact form sent"
+msgstr "Kontaktformular abgesendet"
+
+#: models.py:215
+msgid ""
+"*** There might be a problem with your SMTP configuration. I wasn't able to "
+"send this form submission as email. ***"
+msgstr ""
+"*** Es gibt ein Problem mit Ihrer SMTP-Konfiguration. Ich konnte die "
+"Formulardaten nicht als E-Mail versenden. ***"
+
+#: models.py:261
+msgid "max."
+msgstr "max."
+
+#: models.py:279
+msgid "Enter the characters showed in the image below."
+msgstr "Bitte geben Sie die Zeichen der Abbildung ein."
+
+#: models.py:294
+msgid "contact form"
+msgstr "Kontaktformular"
+
+#: models.py:295
+msgid "contact forms"
+msgstr "Kontaktformulare"
+
+#: models.py:299
+msgid "label"
+msgstr "Bezeichner"
+
+#: models.py:300
+msgid "field type"
+msgstr "Feldtyp"
+
+#: models.py:301
+msgid "widget"
+msgstr "Anzeigeoption"
+
+#: models.py:302
+msgid "required"
+msgstr "obligatorisch"
+
+#: models.py:303 migrations/0003_fields_for_combobox.py:10
+msgid "initial"
+msgstr "Anfangswert"
+
+#: models.py:304 migrations/0003_fields_for_combobox.py:11
+msgid "choices"
+msgstr "Optionen"
+
+#: models.py:304
+msgid "enter choices divided by a semicolon (;) for ChoiceFields"
+msgstr ""
+"Bei Mehrfachauswahl-Feld Eingabe möglicher Optionen getrennt durch Semikolon "
+"(;)"
+
+#: models.py:306
+msgid "position"
+msgstr "Position"
+
+#: models.py:319
+msgid "email"
+msgstr "E-Mail"
+
+#: models.py:325
+msgid "recipient"
+msgstr "Empfänger"
+
+#: models.py:330
+msgid "submit date/time"
+msgstr "Datum/Zeit der Einsendung"
+
+#: models.py:331
+msgid "sender IP address"
+msgstr "IP Adresse Absender"
+
+#: models.py:332
+msgid "form URL"
+msgstr "URL Kontaktformular"
+
+#: models.py:334
+msgid "form data"
+msgstr "Formulardaten"
+
+#: models.py:335
+#: migrations/0014_auto__chg_field_contactform_language__chg_field_contactformsubmission_.py:24
+msgid "form data pickle"
+msgstr "Formulardaten (pickle)"
+
+#: models.py:342
+msgid "contact form submission"
+msgstr "Kontaktformular-Einsendung"
+
+#: models.py:343
+msgid "contact form submissions"
+msgstr "Kontaktformular-Einsendungen"
+
+#: models.py:346
+msgid "submission"
+msgstr "Einsendung"
+
+#: models.py:347
+msgid "file"
+msgstr "Datei"
+
+#: models.py:350
+msgid "contact form submission attachment"
+msgstr "Kontaktformular-Einsendung Dateianhang"
+
+#: models.py:351
+msgid "contact form submission attachments"
+msgstr "Kontaktformular-Einsendung Dateianhänge"
+
+#: models.py:356
+msgid "form"
+msgstr "Formular"
+
+#: templates/admin/contactform/contactformsubmission/change_list.html:121
+#, python-format
+msgid "Add %(name)s"
+msgstr "%(name)s hinzufügen"
+
+#: templates/admin/contactform/contactformsubmission/change_list.html:123
+msgid "export to CSV"
+msgstr "CSV exportieren"
+
+#: templates/admin/contactform/contactformsubmission/change_list.html:134
+msgid "Filter"
+msgstr ""
+
+#: templates/admin/contactform/contactformsubmission/change_list.html:138
+#, fuzzy
+msgid "for date"
+msgstr "Formulardaten"
+
+#: templates/admin/contactform/contactformsubmission/change_list.html:141
+msgid "start"
+msgstr ""
+
+#: templates/admin/contactform/contactformsubmission/change_list.html:145
+msgid "end"
+msgstr ""
+
+#: templates/contactform/form.html:22
+msgid "Error messages:"
+msgstr ""
+
+#: templates/contactform/form_email.txt:2
+#, python-format
+msgid "The following form has been sent from %(site_name)s."
+msgstr ""
+
+#: templates/contactform/form_email.txt:4
+#, fuzzy
+msgid "Formname:"
+msgstr "Name"
+
+#: templatetags/contactform_tags.py:40
+#, python-format
+msgid "[%s] Contact form sent"
+msgstr "[%s] Kontaktformular abgesendet"
+
+#: templatetags/contactform_tags.py:75
+msgid ""
+"Your request has been submitted. We will process it as soon as possible."
+msgstr ""
+"Ihre Anfrage wurde gesendet. Wir werden diese so schnell wie möglich "
+"bearbeiten."
+
+#~ msgid "combobox"
+#~ msgstr "Combo Box"
+
+#~ msgid "Default: \"submit\""
+#~ msgstr "Standard: \"absenden\""

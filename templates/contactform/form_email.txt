@@ -1,0 +1,10 @@
+{% load i18n %}
+{% blocktrans with site.name as site_name %}The following form has been sent from {{ site_name }}.{% endblocktrans %}
+
+{% trans "Formname:" %} {{ contact_form.name }}
+-------------
+{{ form_url }}
+
+{% for attrs in cleaned_fields.itervalues %}
+{{ attrs.label }}: {{ attrs.value }}
+{% endfor %}

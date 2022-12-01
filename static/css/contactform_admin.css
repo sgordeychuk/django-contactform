@@ -1,0 +1,9 @@
+.inline-group .vTextField {
+	width: 15em;
+}
+
+.inline-group .vLargeTextField,
+.inline-group .vXMLLargeTextField {
+	height: 5em;
+	width: 15em;
+}

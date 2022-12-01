@@ -1,0 +1,42 @@
+{% load i18n standard_form recaptcha2 %}
+{% if success and redirect %}
+<script type="text/javascript">
+    window.location.replace("{{ redirect }}");
+</script>
+{% endif %}
+{% recaptcha_explicit_support %}
+{% spaceless %}
+<div id="frm_{{ form_model.name|slugify }}-anchor" class="plugin_contactform">
+<div class="frm_desc">
+	<h2>{% if form_model.title %}{{ form_model.title }}{% else %}{{ form_model.name }}{% endif %}</h2>
+{% if success %}
+	{% if form_model.success_message %}<p>{{ form_model.success_message|safe }}</p>{% endif %}
+{% else %}
+	{% if form_model.description %}<p>{{ form_model.description|safe }}</p>{% endif %}
+{% endif %}
+</div>
+{% if not success %}
+<form action="#{{ form_model.name|slugify }}" method="post" enctype="multipart/form-data" class="frm{% if form_model.css_class %} {{ form_model.css_class }}{% endif %}">
+	{% csrf_token %}
+	{% if form.errors %}
+	<ul class="error">
+		<li class="title">{% if error_message_title %}{{ error_message_title }}{% else %}{% trans "Error messages:" %}{% endif %}</li>
+		{% for field in form %}{% if field.errors %}{% for error in field.errors %}
+		<li><em>{{ field.label }}</em>: {{ error }}</li>
+		{% endfor %}{% endif %}{% endfor %}
+	</ul>
+	{% endif %}
+	<fieldset class="align-horizontal">
+		<ol>
+			{% standard_form form %}
+			<li>
+				<label class="disable">&nbsp;</label>
+				<div><span class="btn"><input type="submit" value="{{ form_model.get_submit_label }}" name="{{ form_model.get_submit_label }}" /></span></div>
+			</li>
+		</ol>
+	</fieldset>
+</form>
+{% recaptcha_explicit_init %}
+{% endif %}
+</div>
+{% endspaceless %}

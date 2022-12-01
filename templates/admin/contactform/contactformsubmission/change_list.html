@@ -1,0 +1,152 @@
+{% extends "admin/change_list.html" %}
+{% load admin_list i18n staticfiles %}
+
+{% block extrahead %}{{ block.super }}
+
+<script type="text/javascript" src="../../jsi18n/"></script>
+<script type="text/javascript" src="{% static "admin/js/core.js" %}"></script>
+<script type="text/javascript" src="{% static "admin/js/calendar.js" %}></script>
+<script type="text/javascript" src="{% static "admin/js/admin/DateTimeShortcuts.js" %}></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+<script type="text/javascript">
+
+function insert_into_url(url, name, value){
+	if(url.substr(url.length-1, url.length)== "&"){
+		url = url.substr(0, url.length-1);
+	}
+	dash_splits = url.split("#");
+	url = dash_splits[0];
+	var splits = url.split(name + "=");
+	var get_args = false;
+	if(url.split("?").length>1){
+		get_args = true;
+	}
+	if(splits.length > 1){
+		var after = "";
+		if (splits[1].split("&").length > 1){
+			after = splits[1].split("&")[1];
+		}
+		url = splits[0] + name + "=" + value + "&" + after;
+	}else{
+		if(get_args){
+			url = url + "&" + name + "=" + value;
+		}else{
+			url = url + "?" + name + "=" + value;
+		}
+	}
+	if(dash_splits.length>1){
+		url += dash_splits[1];
+	}
+	if(url.substr(url.length-1, url.length)== "&"){
+		url = url.substr(0, url.length-1);
+	}
+	return url;
+}
+
+function remove_from_url(url, name){
+	var splits = url.split(name + "=");
+	if(splits.length > 1){
+		var after = "";
+		if (splits[1].split("&").length > 1){
+			after = splits[1].split("&")[1];
+		}
+		if (splits[0].substr(splits[0].length-2, splits[0]-length-1)=="?"){
+			url = splits[0] + after;
+		}else{
+			url = splits[0] + "&" + after;
+		}
+	}
+	return url;
+}
+
+function get_from_url(url, name){
+	var splits = url.split(name + "=");
+	if(splits.length > 1){
+		return splits[1].split("=")[0];
+	}else{
+		return "";
+	}
+}
+
+function add_zindex(){
+	$("div.calendarbox").css("z-index", "5000");
+	$("#filter-start-date").css("width", "70px");
+	$("#filter-end-date").css("width", "70px");
+	$("div.calendarbox").click(function(){
+		setTimeout("update_url();", 500);
+	});
+	$("#filter-start-date").change(function(){
+		setTimeout("update_url();", 500);
+	});
+	$("#filter-end-date").change(function(){
+		setTimeout("update_url();", 500);
+	});
+	$("#filter-start-date")[0].value = get_from_url(window.location.href, "submitted_at__gte");
+	$("#filter-end-date")[0].value = get_from_url(window.location.href, "submitted_at__lte");
+	$('#calendarlink0').prev().click(function(){
+		setTimeout("update_url();", 500);
+	});
+	$('#calendarlink1').prev().click(function(){
+		setTimeout("update_url();", 500);
+	});
+};
+
+function update_url(){
+	var url = window.location.href;
+	var old_url = url;
+	if($("#filter-start-date")[0].value){
+		url = insert_into_url(url, "submitted_at__gte", $("#filter-start-date")[0].value)
+	}else{
+		url = remove_from_url(url, "submitted_at__gte")
+	}
+	if($("#filter-end-date")[0].value){
+		url = insert_into_url(url, "submitted_at__lte", $("#filter-end-date")[0].value)
+	}else{
+		url = remove_from_url(url, "submitted_at__lte")
+	}
+	if(old_url != url){
+		window.location.href = url
+	}
+}
+
+addEvent(window, 'load', add_zindex); 
+
+</script>
+{{ media }}
+{% endblock %}
+
+{% block object-tools %}
+<ul class="object-tools">
+    {% if has_add_permission %}
+    <li><a href="add/{% if is_popup %}?_popup=1{% endif %}" class="addlink">{% blocktrans with cl.opts.verbose_name|escape as name %}Add {{ name }}{% endblocktrans %}</a></li>
+    {% endif %}
+    <li><a id="csv-export" href="csv/">{% trans "export to CSV" %}</a></li>
+    <script type="text/javascript">
+    	// just to move url paremeters to csv exporter
+    	document.getElementById('csv-export').href += window.location.href.split('?').length > 1 ? '?' + window.location.href.split('?')[1] : '';
+    </script>
+</ul>
+{% endblock %}
+
+{% block filters %}
+{% if cl.has_filters %}
+<div id="changelist-filter">
+<h2>{% trans 'Filter' %}</h2>
+{% for spec in cl.filter_specs %}
+   {% admin_list_filter cl spec %}
+{% endfor %}
+<h3>{% trans "for date" %}</h3>
+<ul>
+	<li>
+		<h5>{% trans "start" %}</h5>
+		<input id="filter-start-date" class="vDateField" type="text"></input>
+	</li>
+	<li>
+		<h5>{% trans "end" %}</h5>
+		<input id="filter-end-date" class="vDateField" type="text"></input>
+	</li>
+</ul>
+
+</div>
+{% endif %}
+{% endblock %}
