@@ -58,7 +58,7 @@ class ContactFormNode(template.Node):
                     'contact_form': contact_form,
                     'rows': rows,
                 }, autoescape=False)
-                text_template = loader.get_template('contactform/form_submission_email.txt')
+                text_template = loader.get_template('contactform/../templates/contactform/form_submission_email.txt')
                 text_content = text_template.render(message_context)
                 recipient_list = [recipient['email'] for recipient in contact_form.recipients.values('email')]
                 bcc = []
@@ -80,7 +80,7 @@ class ContactFormNode(template.Node):
                     'contact_form': contact_form,
                 })
     
-        return loader.render_to_string("contactform/form.html", my_context)
+        return loader.render_to_string("contactform/../templates/contactform/form.html", my_context)
 
 @register.tag()
 def render_contactform(parser, token):

@@ -23,7 +23,7 @@ def index(request, form_model_id):
                 'form_model': contact_form,
                 'success': True,
             }
-            return render_to_response("contactform/base.html", dictionary=context,
+            return render_to_response("contactform/templates/contactform/base.html", dictionary=context,
                                       context_instance=RequestContext(request))
         else:
             # error happened
@@ -32,7 +32,7 @@ def index(request, form_model_id):
                 'form_model': contact_form,
                 'success': False,
             }
-            return render_to_response("contactform/base.html", dictionary=context,
+            return render_to_response("contactform/templates/contactform/base.html", dictionary=context,
                                       context_instance=RequestContext(request))
     else:
         initial_data = get_initial_data_from_request(request, contact_form)
@@ -42,7 +42,7 @@ def index(request, form_model_id):
         'form_model': contact_form,
         'success': False,
     }
-    return render_to_response("contactform/base.html", dictionary=context, context_instance=RequestContext(request))
+    return render_to_response("contactform/templates/contactform/base.html", dictionary=context, context_instance=RequestContext(request))
 
 
 def get_initial_data_from_request(request, contact_form):

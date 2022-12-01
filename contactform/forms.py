@@ -185,12 +185,12 @@ class ContactFormFormBase(Form):
         }, autoescape=False)
 
         text_content = render_to_string(
-            'contactform/form_submission_email.txt',
+            'contactform/templates/contactform/form_submission_email.txt',
             context_instance=message_context,
         )
 
         html_content = render_to_string(
-            'contactform/form_submission_email.html',
+            'contactform/templates/contactform/form_submission_email.html',
             context_instance=message_context,
         )
 

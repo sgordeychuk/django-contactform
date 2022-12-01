@@ -1,0 +1,2 @@
+recursive-include contactform *
+global-exclude *.py[co]
